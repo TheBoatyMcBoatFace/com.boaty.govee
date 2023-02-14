@@ -1,3 +1,15 @@
+# StreamDeck+ Govee Plugin
+
+A plugin to control Govee lighgts via Gials
+
+## Actions
+
+Possible Events can be found [in Elgato's Docs](https://developer.elgato.com/documentation/stream-deck/sdk/events-received/)
+| Action | Controls |
+| ---------- | ------ |
+| touchTap | Cycle Colors |
+| dialPress | On Off |
+| dialRotate | Brightness |
 
 # Stream Deck Plugin Template
 
@@ -26,7 +38,7 @@ A short guide to help you get started quickly.
 
 ### Clone the repo
 
-```git clone https://github.com/elgatosf/streamdeck-plugin-template```
+`git clone https://github.com/elgatosf/streamdeck-plugin-template`
 
 ### Replace Name
 
@@ -38,27 +50,29 @@ Rename the folder as well as any references.
 
 Be sure `.gitmodules` has been updated to match your new folder name `my.domain.plugin-name` and then pull the latest libraries.
 
-```git submodule init && git submodule update```
+`git submodule init && git submodule update`
 
 ### Start Coding
 
 You can get started in app.js!
 
 ```javascript
-const myAction = new Action('com.boaty.govee.action');
+const myAction = new Action("com.boaty.govee.action");
 
 /**
  * The first event fired when Stream Deck starts
  */
-$SD.onConnected(({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
-  console.log('Stream Deck connected!');
-});
+$SD.onConnected(
+  ({ actionInfo, appInfo, connection, messageType, port, uuid }) => {
+    console.log("Stream Deck connected!");
+  }
+);
 
 myAction.onKeyUp(({ action, context, device, event, payload }) => {
-  console.log('Your key code goes here!');
+  console.log("Your key code goes here!");
 });
 
 myAction.onDialRotate(({ action, context, device, event, payload }) => {
-  console.log('Your dial code goes here!');
+  console.log("Your dial code goes here!");
 });
 ```
